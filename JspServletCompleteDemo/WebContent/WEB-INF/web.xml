@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	id="WebApp_ID" version="3.1">
+	<display-name>JspServletCompleteDemo</display-name>
+	
+	<session-config>
+		<session-timeout>60</session-timeout>
+		<cookie-config>
+			<name>appcookie</name>
+			<http-only>true</http-only>
+			<max-age>60</max-age>
+		</cookie-config>
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+
+	<welcome-file-list>
+		<welcome-file>Login.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<context-param>
+		<param-name>GlobalParam</param-name>
+		<param-value>Global Param Value</param-value>
+	</context-param>
+	
+	<servlet>
+		<servlet-name>HelloServlet</servlet-name>
+		<servlet-class>com.app.servlet.HelloServlet</servlet-class>
+		<init-param>
+			<param-name>greetingMessage</param-name>
+			<param-value>Hello, Web Application!</param-value>
+		</init-param>
+		<load-on-startup>0</load-on-startup>
+		<enabled>true</enabled>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HelloServlet</servlet-name>
+		<url-pattern>/Hello</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ProcessorServlet</servlet-name>
+		<servlet-class>com.app.servlet.ProcessorServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ProcessorServlet</servlet-name>
+		<url-pattern>/Processor</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UserServlet</servlet-name>
+		<servlet-class>com.app.servlet.UserServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserServlet</servlet-name>
+		<url-pattern>/UserServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserForm2</servlet-name>
+		<jsp-file>/userForm2.html</jsp-file>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserForm2</servlet-name>
+		<url-pattern>/UserForm2</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>InitPage</servlet-name>
+		<jsp-file>/InitPage.jsp</jsp-file>
+		<init-param>
+			<param-name>DefaultUser</param-name>
+			<param-value>DefaultUserName</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>InitPage</servlet-name>
+		<url-pattern>/InitJSP</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AuthenticationController</servlet-name>
+		<servlet-class>com.app.servlet.AuthenticationController</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>AuthenticationController</servlet-name>
+		<url-pattern>/login</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>DownloadServlet</servlet-name>
+		<servlet-class>com.app.servlet.DownloadServlet</servlet-class>
+		<init-param>
+			<param-name>FILESTORE_LOC</param-name>
+			<param-value>./filestore/</param-value>
+		</init-param>
+		<load-on-startup>-1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DownloadServlet</servlet-name>
+		<url-pattern>/Download</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>com.app.servlet.UploadServlet</servlet-class>
+		<init-param>
+			<param-name>UPLOAD_LOC</param-name>
+			<param-value>C:\Workspaces\frameworks\jsp-servlet\JspServletCompleteDemo\WebContent\filestore</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/Upload</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>AuthenticationFilter</filter-name>
+		<filter-class>com.app.filter.AuthenticationFilter</filter-class>
+		<init-param>
+			<param-name>filter-param-name-1</param-name>
+			<param-value>filter-param-value-1</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>AuthenticationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+
+	<!-- <listener>
+		<listener-class>com.app.listener.ApplicationServletContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.app.listener.ApplicationServletContextAttributeListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.app.listener.ApplicationHttpSessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.app.listener.ApplicationHttpSessionAttributeListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.app.listener.ApplicationServletRequestListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.app.listener.ApplicationServletRequestAttributeListener</listener-class>
+	</listener> -->
+
+</web-app>

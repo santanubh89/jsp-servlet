@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="ISO-8859-1">
+		<title>Insert title here</title>
+	</head>
+	<body>
+	<form action="UserServlet" method="post">
+		<input type="text" name="username" value="User Name" />
+		<input type="password" name="password" value="Password" />
+		<br />
+		<input type="radio" name="citizenship" value="Indian">Indian</input>
+		<input type="radio" name="citizenship" value="Non-Indian">Non-Indian</input>
+		<br />
+		<input type="checkbox" name="communication" value="Communication via Phone">Communication via Phone</input>
+		<input type="checkbox" name="communication" value="Communication via Email">Communication via Email</input>
+		<br />
+		<select name="location" multiple size="2">
+			<option value="Kolkata">Kolkata</option>
+			<option value="Delhi">Delhi</option>
+			<option value="Mumbai">Mumbai</option>
+			<option value="Chennai">Chennai</option>
+		</select>
+		<br />
+		<input type="submit" />
+	</form>
+	</body>
+</html>
